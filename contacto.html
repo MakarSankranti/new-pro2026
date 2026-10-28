@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080605">
+<title>Contacto | Makar Sankranti</title>
+<meta name="description" content="Déjanos tus datos para ponernos en contacto contigo.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23080605'/%3E%3Cpath d='M20 4 36 34H4Z' fill='none' stroke='%23E08A2B' stroke-width='3'/%3E%3Cpath d='M20 14 28 29H12Z' fill='none' stroke='%23E08A2B' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Yatra+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#080605; --deep:#0F2A2E; --stone:#3F7480; --saffron:#E08A2B; --vermilion:#B3412B; --sand:#E3CFA8;
+  
+  --display:"Yatra One",Georgia,serif; --text:"Figtree",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--ink);color:var(--sand);font:400 1.0625rem/1.65 var(--text);letter-spacing:.005em;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Navegación */
+.nav{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:12px clamp(20px,5vw,56px);background:rgba(8,6,5,.86);backdrop-filter:blur(8px);border-bottom:1px solid rgba(227,207,168,.15)}
+.nav ul{display:flex;gap:clamp(16px,3vw,32px);list-style:none;padding:0}
+.nav ul a{text-decoration:none;font-weight:500;font-size:.98rem;letter-spacing:.02em}
+.nav ul a:hover{color:var(--saffron)}
+.mark{width:34px;height:34px;display:block}
+
+/* Hero: el relieve se descubre con una luz */
+.hero{min-height:calc(100svh - 62px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:clamp(24px,5vw,72px);padding:clamp(20px,4vw,48px) clamp(20px,5vw,56px)}
+.lead{font:400 clamp(2.3rem,5vw,4.3rem)/1.1 var(--display);letter-spacing:.01em;max-width:12ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{display:inline-block;padding:14px 26px;border-radius:2px;font-weight:600;text-decoration:none;border:2px solid var(--saffron);background:var(--saffron);color:var(--ink);transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:var(--saffron)}
+.btn.alt{background:transparent;color:var(--sand);border-color:rgba(227,207,168,.5)}
+.btn.alt:hover{border-color:var(--sand);color:var(--ink);background:var(--sand)}
+.hint{margin-top:28px;font-size:.9rem;opacity:.65}
+.hint .touch{display:none}
+@media (hover:none){.hint .mouse{display:none}.hint .touch{display:inline}}
+
+.stage{position:relative;width:100%;max-width:min(760px,80svh);aspect-ratio:1;justify-self:center;--mx:50%;--my:40%;--r:0px;touch-action:pan-y;border:1px solid rgba(227,207,168,.18)}
+.stage>div{position:absolute;inset:0;background:var(--art) center/cover}
+.stage .dim{filter:brightness(.16) saturate(.7)}
+.stage .lit{-webkit-mask-image:radial-gradient(circle var(--r) at var(--mx) var(--my),#000 0,rgba(0,0,0,.55) 55%,transparent 100%);mask-image:radial-gradient(circle var(--r) at var(--mx) var(--my),#000 0,rgba(0,0,0,.55) 55%,transparent 100%)}
+.stage .glow{background:radial-gradient(circle calc(var(--r)*1.15) at var(--mx) var(--my),rgba(224,138,43,.3),transparent 70%);mix-blend-mode:screen}
+@media (prefers-reduced-motion:reduce){
+  .stage .dim,.stage .glow{display:none}
+  .stage .lit{-webkit-mask-image:none;mask-image:none}
+}
+
+/* Secciones */
+section{padding:clamp(64px,10vw,120px) clamp(20px,5vw,56px)}
+h2{font:400 clamp(2rem,4.6vw,3.5rem)/1.1 var(--display);letter-spacing:.01em}
+
+.listen{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
+.rows{list-style:none;padding:0;margin-top:32px;border-top:1px solid rgba(227,207,168,.3)}
+.rows a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:22px 8px;border-bottom:1px solid rgba(227,207,168,.3);font:400 clamp(1.7rem,3.6vw,2.8rem)/1.1 var(--display);text-decoration:none;transition:background .25s,color .25s,padding .25s}
+.rows a span{font:600 .9rem var(--text)}
+.rows a:hover,.rows a:focus-visible{background:var(--saffron);color:var(--ink);padding-inline:24px;outline-offset:-3px}
+.player{width:100%;height:352px;border:0;border-radius:6px;background:var(--deep)}
+.about{max-width:48ch;margin-top:24px}
+
+#fechas{background:var(--deep)}
+.shows{list-style:none;padding:0;margin-top:32px;max-width:880px}
+.shows li{display:grid;grid-template-columns:110px 1fr auto;gap:20px;align-items:center;padding:20px 0;border-bottom:1px solid rgba(227,207,168,.25)}
+.shows time{font:400 1.6rem/1 var(--display);color:var(--saffron)}
+.shows strong{display:block}
+.empty{max-width:46ch;margin-top:24px}
+
+#tienda{background:var(--saffron);color:var(--ink)}
+.store{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.store p{max-width:42ch;margin-top:20px;font-size:1.15rem}
+.store .btn{margin-top:32px;background:var(--ink);border-color:var(--ink);color:var(--sand)}
+.store .btn:hover{background:transparent;color:var(--ink)}
+.relief{aspect-ratio:4/5;background:var(--art) 50% 8%/230%;border:6px solid var(--ink)}
+
+footer{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding:36px clamp(20px,5vw,56px);font-size:.95rem}
+footer ul{display:flex;gap:22px;list-style:none;padding:0}
+
+@media (max-width:860px){
+  .hero,.listen,.store,.contact{grid-template-columns:1fr}
+  .stage{order:-1;max-width:min(560px,100%)}
+  .lead{font:400 clamp(2.3rem,5vw,4.3rem)/1.1 var(--display);letter-spacing:.01em;max-width:12ch}
+  .shows li{grid-template-columns:84px 1fr}
+  .shows li .btn{grid-column:2;justify-self:start}
+  .relief{aspect-ratio:16/10;background-position:50% 12%}
+}
+
+/* Menú móvil */
+.nav ul a[aria-current]{color:var(--saffron)}
+.menu-btn{display:none;background:none;border:1px solid rgba(227,207,168,.4);color:var(--sand);font:500 .95rem var(--text);padding:8px 16px;border-radius:2px;cursor:pointer}
+@media (max-width:760px){
+  .menu-btn{display:block}
+  .nav ul{display:none;position:absolute;inset:100% 0 auto 0;flex-direction:column;gap:0;background:var(--ink);border-bottom:1px solid rgba(227,207,168,.25);padding:6px clamp(20px,5vw,56px) 14px}
+  .nav ul.open{display:flex}
+  .nav ul a{display:block;padding:14px 0;font-size:1.05rem}
+}
+/* Contacto */
+#contacto{border-top:1px solid rgba(227,207,168,.18)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.contact p{max-width:40ch;margin-top:20px}
+.phone{display:block;font:400 clamp(2rem,5.5vw,3.5rem)/1.1 var(--display);color:var(--saffron);text-decoration:none;margin-bottom:26px}
+.phone:hover{text-decoration:underline;text-underline-offset:6px}
+.btn.wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;border-color:#25D366;color:#06210F}
+.btn.wa:hover{background:transparent;color:#25D366}
+.btn.wa svg{width:22px;height:22px;fill:currentColor}
+/* Página de videos */
+.page-head{padding:clamp(48px,8vw,96px) clamp(20px,5vw,56px) 0}
+.page-head h1{font:400 clamp(2.4rem,6vw,4.6rem)/1.08 var(--display);letter-spacing:.01em}
+.page-head p{max-width:46ch;margin-top:20px}
+.vgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3vw,40px);padding:clamp(32px,5vw,56px) clamp(20px,5vw,56px) clamp(64px,10vw,120px)}
+.vid.feat{grid-column:1/-1}
+.frame{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid rgba(227,207,168,.2);background:var(--deep) var(--art) var(--pos,50% 20%)/220%}
+.frame.yt{background-size:cover;background-position:center}
+.frame.ph::after{content:"";position:absolute;inset:0;background:rgba(8,6,5,.55)}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.play{position:absolute;inset:0;z-index:1;width:100%;height:100%;display:grid;place-items:center;background:none;border:0;color:var(--saffron);cursor:pointer}
+.play:disabled{cursor:default}
+.play svg{width:clamp(48px,9%,84px);transition:transform .2s}
+.play:not(:disabled):hover svg,.play:focus-visible svg{transform:scale(1.12)}
+.chip{position:absolute;left:12px;bottom:12px;z-index:2;background:var(--ink);color:var(--sand);font:600 .85rem var(--text);padding:5px 10px;border-radius:2px}
+.vid h3{font:400 1.35rem/1.2 var(--display);margin-top:14px}
+.vid.feat h3{font-size:clamp(1.6rem,3vw,2.2rem)}
+.vid p{opacity:.75;font-size:.95rem}
+@media (min-width:861px){.vid.feat .frame{aspect-ratio:21/9}}
+@media (max-width:860px){.vgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.vgrid{grid-template-columns:1fr}}
+
+/* v3 */
+.bio h2{font:400 clamp(2rem,4.6vw,3.5rem)/1.1 var(--display);margin-bottom:20px}
+.bio-text{font-size:clamp(1.1rem,2vw,1.3rem);max-width:36ch}
+.bio .phone{margin:28px 0 18px}
+.page-body{padding:clamp(32px,5vw,56px) clamp(20px,5vw,56px) clamp(64px,10vw,120px)}
+.page-body .shows,.page-body .rows{margin-top:0}
+.page-body .page-narrow{max-width:900px}
+.rows a{flex-wrap:wrap}
+.form{display:grid;gap:20px;max-width:560px}
+.field{display:grid;gap:6px}
+.field label{font-weight:500}
+.field input{font:inherit;color:var(--sand);background:var(--deep);border:1px solid rgba(227,207,168,.35);border-radius:2px;padding:12px 14px;min-height:50px;width:100%}
+.field input:focus{outline:3px solid var(--saffron);outline-offset:2px;border-color:var(--saffron)}
+.form .btn{justify-self:start;cursor:pointer;font:600 1rem var(--text)}
+.status{min-height:1.6em}
+.vfeat{aspect-ratio:16/9;max-width:1000px;background:var(--deep);border:1px solid rgba(227,207,168,.2)}
+.vfeat iframe{width:100%;height:100%;border:0;display:block}
+.page-body .vfeat+.btn{margin-top:24px}
+.sub{padding:0 clamp(20px,5vw,56px)}
+.sub+.vgrid{padding-top:28px}
+footer a{text-decoration:none;font-weight:500}
+footer a:hover{color:var(--saffron)}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Principal"><a href="index.html" aria-label="Makar Sankranti, inicio"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 36 34H4Z" fill="none" stroke="#E08A2B" stroke-width="2.5"/><path d="M20 14 28 29H12Z" fill="none" stroke="#E08A2B" stroke-width="2.5"/></svg></a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menú</button><ul id="menu"><li><a href="index.html">Inicio</a></li><li><a href="videos.html">Videos</a></li><li><a href="fechas.html">Fechas</a></li><li><a href="contacto.html" aria-current="page">Contacto</a></li><li><a href="redes.html">Redes sociales</a></li><li><a href="escuchanos.html">Escúchanos</a></li></ul></nav>
+<header class="page-head"><h1>Contacto</h1><p>Déjanos tus datos y nos ponemos en contacto contigo.</p></header>
+<div class="page-body">
+  <form class="form" id="form">
+    <div class="field"><label for="nombre">Nombre</label><input id="nombre" name="nombre" autocomplete="name" required></div>
+    <div class="field"><label for="ciudad">Ciudad</label><input id="ciudad" name="ciudad" autocomplete="address-level2" required></div>
+    <div class="field"><label for="correo">Correo</label><input id="correo" name="correo" type="email" autocomplete="email" required></div>
+    <div class="field"><label for="telefono">Teléfono</label><input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9 +]{10,16}" title="Escribe tu número con 10 dígitos" required></div>
+    <button class="btn" type="submit">Enviar datos</button>
+    <p class="status" id="status" role="status"></p>
+  </form>
+</div>
+<footer><p>© 2026 Makar Sankranti</p><a href="https://www.mercadolibre.com.mx/up/MLMU5336157682?pdp_filters=item_id:MLM3564009683" target="_blank" rel="noopener">Tienda oficial en Mercado Libre</a></footer>
+<script>(function(){
+  var b=document.querySelector('.menu-btn'),u=document.getElementById('menu');
+  if(!b||!u)return;
+  function close(){u.classList.remove('open');b.setAttribute('aria-expanded','false')}
+  b.addEventListener('click',function(){var o=u.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  u.addEventListener('click',function(e){if(e.target.closest('a'))close()});
+  addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+})();</script>
+<script>
+/* Para recibir los datos por correo, pega aquí el enlace de un servicio de formularios (por ejemplo Formspree).
+   Si se deja vacío, el formulario abre WhatsApp con los datos ya escritos. */
+const ENDPOINT = "";
+const WHATSAPP = "525516779052";
+const form = document.getElementById('form'), status = document.getElementById('status');
+form.addEventListener('submit', async e=>{
+  e.preventDefault();
+  const d = Object.fromEntries(new FormData(form));
+  if(ENDPOINT){
+    try{
+      const r = await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)});
+      if(!r.ok) throw new Error();
+      status.textContent = 'Listo, recibimos tus datos. Gracias.'; form.reset();
+    }catch(_){ status.textContent = 'No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.'; }
+    return;
+  }
+  const msg = 'Hola, soy '+d.nombre+' de '+d.ciudad+'. Mi correo es '+d.correo+' y mi teléfono es '+d.telefono+'.';
+  window.open('https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(msg),'_blank','noopener');
+  status.textContent = 'Se abrió WhatsApp con tus datos. Envía el mensaje para terminar.';
+});
+</script>
+</body>
+</html>

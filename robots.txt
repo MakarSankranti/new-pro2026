@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://makarsankranti.github.io/new-pro2026/sitemap.xml
